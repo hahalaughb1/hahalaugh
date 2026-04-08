@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 佈局練習</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            min-height: 200px;
+            margin: 0 auto;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+
+        table {
+            border-collapse: collapse;           
+            width: 300px;
+        }
+
+        th, td {
+            border: 1px solid #000; 
+            padding: 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        thead th {
+            background-color: #666666;
+            color: white;
+        }
+
+        tbody tr:nth-child(1),
+        tbody tr:nth-child(3) {
+            background-color: #ffff00;
+        }
+
+        tbody tr:nth-child(2) {
+            background-color: #ffffff;
+        }
+
+        .fixed-box {
+            border: 2px solid #71a92c; 
+            padding: 10px;
+            width: 150px;
+            font-weight: normal;
+            background-color: white;
+            position: fixed; 
+            top: 20px;   
+            right: 20px; 
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="fixed-box">
+            This div element has position: fixed;
+        </div>
+    </div>
+
+</body>
+</html>
