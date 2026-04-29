@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Interaction</title>
+    <style>
+        /* 基本樣式設定 */
+        body {
+            font-family: serif; /* 圖片中的字體偏向襯線體 */
+            padding: 20px;
+        }
+        #myText {
+            font-size: 24px;
+            color: black;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 16px;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="myText">Hello</div>
+    
+    <button id="myButton">Button</button>
+
+    <script>
+        // 取得 HTML 元素
+        const textElement = document.getElementById('myText');
+        const buttonElement = document.getElementById('myButton');
+
+        // 1. Mouse over button (滑鼠移入)：改變文字顏色為洋紅色 (fuchsia/magenta)
+        buttonElement.addEventListener('mouseover', function() {
+            textElement.style.color = 'fuchsia'; 
+        });
+
+        // 2. Mouse click button (滑鼠點擊)：改變文字內容為 "Mouse Click"
+        buttonElement.addEventListener('click', function() {
+            textElement.textContent = 'Mouse Click';
+        });
+
+        // (選擇性補充) Mouse out (滑鼠移出)：將顏色恢復為黑色，方便重複測試效果
+        buttonElement.addEventListener('mouseout', function() {
+            textElement.style.color = 'black';
+        });
+    </script>
+</body>
+</html>
