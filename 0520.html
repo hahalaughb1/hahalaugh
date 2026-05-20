@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Object Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 500px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fdfdfd;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        ul {
+            background-color: #eee;
+            padding: 15px 30px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>JavaScript 物件操作展示</h2>
+
+        <h3>1. 原始物件的所有屬性：</h3>
+        <ul id="propertiesList"></ul>
+
+        <h3>2. 刪除屬性</h3>
+        <p><em>正在執行 <code>delete Person.age;</code> ... 完成。</em></p>
+
+        <h3>3. 刪除 'age' 屬性後的物件：</h3>
+        <pre id="objectAfter"></pre>
+    </div>
+
+    <script>
+        // 建立題目提供的範例物件
+        var Person = {
+            firstName : "Tony",
+            lastName : "Lee",
+            age : 50,
+            eyeColor : "Blue"
+        };
+
+        // 1. 列出物件的所有屬性 (List all properties)
+        var propertiesList = document.getElementById('propertiesList');
+        console.log("--- 原始物件屬性 ---");
+        
+        for (var prop in Person) {
+            // 將屬性與值顯示在網頁的清單中
+            var li = document.createElement('li');
+            li.textContent = prop + " : " + Person[prop];
+            propertiesList.appendChild(li);
+            
+            // 同時輸出到 Console
+            console.log(prop + " : " + Person[prop]);
+        }
+
+        // 2. 刪除 age 屬性 (Delete the age property)
+        delete Person.age;
+
+        // 3. 印出刪除屬性後的物件 (Print the object after deleting)
+        var objectAfter = document.getElementById('objectAfter');
+        
+        // 使用 JSON.stringify 將物件格式化為易讀的字串並顯示在網頁上
+        objectAfter.textContent = JSON.stringify(Person, null, 4);
+        
+        // 同時輸出到 Console
+        console.log("--- 刪除 'age' 後的物件 ---");
+        console.log(Person);
+    </script>
+
+</body>
+</html>
