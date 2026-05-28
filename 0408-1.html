@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float and Inline-Block Layout</title>
+    <style>
+        /* 整體文章容器設定 */
+        .container {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 18px;
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 20px auto;
+            border: 1px solid #ccc; /* 模擬圖片中的白色背景區塊邊界，可依需求移除 */
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        body {
+            background-color: #f0f0f0; /* 讓白色區塊更明顯 */
+        }
+
+        /* 針對 "Love" 等單字的 inline-block 設定 */
+        .inline-box {
+            display: inline-block;
+            border: 1px solid blue;
+            background-color: #e6e6b8; /* 淺黃色背景 */
+            padding: 0 4px;
+        }
+
+        /* 靠右浮動且帶有捲軸的區塊設定 */
+        .float-box {
+            float: right;
+            width: 140px;
+            height: 140px;
+            border: 3px solid #6aa84f; /* 綠色邊框 */
+            overflow: auto; /* 內容超出時顯示捲軸 */
+            padding: 10px;
+            margin-left: 15px; /* 與左側文字保持距離 */
+            margin-bottom: 5px;
+            font-family: sans-serif;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="float-box">
+            A float div with overflow auto. A float div with overflow auto. A float div with overflow auto. A float div with overflow auto. 
+        </div>
+        
+        <p style="margin: 0;">
+            (Just long sentence.) Let me not to the marriage of true minds Admit impediments. 
+            <span class="inline-box">Love</span> is not love Which alters when it alteration finds, Or bends with the remover to remove: O, no! it is an ever-fix`ed mark, That looks on tempests and is never shaken; It is the star to every wand'ring bark, Whose worth's unknown, although his heighth be taken. 
+            <span class="inline-box">Love's</span> not Time's fool, though rosy lips and cheeks Within his bending sickle's compass come; 
+            <span class="inline-box">Love</span> alters not with his brief hours and weeks, But bears it out even to the edge of doom: If this be error and upon me proved, I never writ, nor no man ever loved.
+        </p>
+    </div>
+
+</body>
+</html>
