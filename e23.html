@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design to Code: Button & Toggle Info</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f6f6f6;
+        padding: 40px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 右側預覽區塊容器 (寬度參考圖上的 496) */
+    .preview-container {
+        width: 496px; 
+        background-color: #ffffff;
+        border: 1px solid #eaeaea;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    /* 頂部 Header 區塊 */
+    .header {
+        height: 35px; /* 圖上標示的高度 */
+        display: flex;
+        justify-content: flex-end; /* 讓內容靠右 */
+        align-items: center;
+        padding-right: 22px; /* 距離右側 22px */
+        border-bottom: 1px solid #eaeaea;
+    }
+
+    /* 🔥 核心按鈕實作 (嚴格按照設計標註) 🔥 */
+    .toggle-btn {
+        height: 22px;
+        border-radius: 8px;
+        background-color: #ffffff;
+        border: 1px solid #2f2f2f;
+        color: #2f2f2f;
+        font-family: 'Roboto', sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        padding: 0 18px; /* 左右 padding 18 */
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        transition: background-color 0.2s;
+    }
+
+    .toggle-btn:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* 圖片預覽區 */
+    .image-wrapper {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .image-placeholder {
+        width: 450px;
+        height: 240px;
+        /* 使用漸層模擬圖片 */
+        background: linear-gradient(135deg, #f0c2a0, #e09971); 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #1a4b8c;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 auto;
+    }
+
+    /* 隱藏的詳細資訊面板 */
+    .info-panel {
+        display: none; /* 預設隱藏 */
+        padding: 0 20px 20px 20px;
+    }
+
+    /* 展開狀態 */
+    .info-panel.active {
+        display: block;
+    }
+
+    /* 綠色資訊條 */
+    .info-row {
+        background-color: #98e092; /* 模擬圖中的綠色底色 */
+        color: #707070; /* 圖上標示的字體顏色 */
+        font-size: 13px;
+        padding: 6px 10px;
+        margin-bottom: 6px;
+        border-radius: 2px;
+    }
+</style>
+</head>
+<body>
+
+<div class="preview-container">
+    <div class="header">
+        <button class="toggle-btn" id="infoBtn">查看資訊</button>
+    </div>
+    
+    <div class="image-wrapper">
+        <div class="image-placeholder">
+            Default<br>450x240
+        </div>
+    </div>
+
+    <div class="info-panel" id="infoPanel">
+        <div class="info-row">修改日期 : 2017/10/12</div>
+        <div class="info-row">類別 : JPG</div>
+        <div class="info-row">大小 : 466.97KB</div>
+        <div class="info-row">路徑 : \\designcenter.qnap.com.tw\DesignCenter\PM...</div>
+    </div>
+</div>
+
+<script>
+    // 取得按鈕與資訊面板的 DOM 元素
+    const btn = document.getElementById('infoBtn');
+    const panel = document.getElementById('infoPanel');
+
+    // 監聽按鈕點擊事件
+    btn.addEventListener('click', function() {
+        // 切換 panel 的 active class (控制顯示/隱藏)
+        panel.classList.toggle('active');
+        
+        // 根據展開狀態，改變按鈕上的文字
+        if (panel.classList.contains('active')) {
+            btn.textContent = '收起資訊';
+        } else {
+            btn.textContent = '查看資訊';
+        }
+    });
+</script>
+</body>
+</html>
